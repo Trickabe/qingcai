@@ -1,0 +1,42 @@
+name: Deploy static site to GitHub Pages
+
+# 每次推送到 main 分支时自动重新部署。
+# 本项目是零构建的纯静态站点，直接把仓库根目录整体发布出去。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# GITHUB_TOKEN 需要的最小权限，缺一不可。
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只允许一次部署；排队中的旧任务直接取消，正在跑的不打断。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 仓库根目录就是站点根目录，无需构建步骤。
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

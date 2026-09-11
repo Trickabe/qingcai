@@ -1,0 +1,20 @@
+# 依赖与本地环境
+node_modules/
+.env
+.env.local
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*
+
+# 本地预览产物
+dist/
+
+# 本地部署验证脚本（不发布）
+.verify-*.js

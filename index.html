@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>青财智管 - 青年人的智能财富成长助手</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard"><span class="brand-mark">Q</span><span>青财智管<small>QINGCAI</small></span></a>
+      <div class="profile-mini"><div class="avatar">林</div><div><b>林知夏</b><small>成长 Lv.3 · 稳步前行</small></div></div>
+      <nav id="nav" aria-label="主导航"></nav>
+      <div class="sidebar-bottom"><button class="outline-btn" id="notificationBtn">🔔 风险提醒 <i>2</i></button><button class="text-btn" data-page="settings">⚙ 设置与授权</button></div>
+    </aside>
+    <main class="main"><header class="topbar"><button class="mobile-menu" id="menuBtn">☰</button><div id="crumb">今日概览</div><div class="top-actions"><span class="date">2026年9月 · 新学期开始</span><button class="help-btn" onclick="showToast('需要帮助？试试问问青财 AI')">?</button></div></header><div id="view"></div></main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <div class="modal-backdrop" id="modal"></div>
+  <script src="app.js"></script>
+</body>
+</html>
