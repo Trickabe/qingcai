@@ -5,14 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>青财智管 - 青年人的智能财富成长助手</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <style>
+    /* 演示提示弹层内联样式：确保在静态托管环境下不会作为普通区块渲染到页面底部 */
+    .notice-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:rgba(16,52,54,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);place-items:center;padding:20px}
+    .notice-overlay:not(.show){display:none!important}
+    .notice-overlay.show{display:grid}
+    .notice-card{width:100%;max-width:460px;background:#fff;border-radius:20px;padding:30px 28px;box-shadow:0 30px 80px rgba(10,40,40,.35);max-height:90vh;overflow-y:auto}
+    .notice-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:#173a3d;margin-bottom:4px}
+    .notice-mark{background:linear-gradient(135deg,#35c9b8,#268ee0);color:#fff;border-radius:12px;width:40px;height:40px;display:grid;place-items:center;font-family:Georgia;font-size:24px}
+    .notice-brand small{display:block;font-size:10px;color:#789093;letter-spacing:1px;font-weight:400;margin-top:2px}
+    .notice-card h1{font-size:22px;margin:14px 0 4px}
+    .notice-sub{color:#789093;margin:0 0 20px;line-height:1.6}
+    .notice-points{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+    .notice-points li{display:flex;gap:12px;align-items:flex-start;background:#f7fbfa;border:1px solid #e7efee;border-radius:12px;padding:12px}
+    .notice-points li>span{font-size:22px;line-height:1}
+    .notice-points b{font-size:14px;display:block}
+    .notice-points p{margin:3px 0 0;color:#789093;font-size:12px;line-height:1.5}
+    .notice-enter{width:100%;margin-top:22px;padding:13px;font-size:15px}
+    @media(max-width:600px){.notice-card{padding:24px 20px}}
+  </style>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="#dashboard"><span class="brand-mark">Q</span><span>青财智管<small>QINGCAI</small></span></a>
-      <div class="profile-mini"><div class="avatar">林</div><div><b>林知夏</b><small>成长 Lv.3 · 稳步前行</small></div></div>
+      <div class="profile-mini"><div class="avatar">秾</div><div><b>秾工诚</b><small>成长 Lv.3 · 稳步前行</small></div></div>
       <nav id="nav" aria-label="主导航"></nav>
       <div class="sidebar-bottom"><button class="outline-btn" id="notificationBtn">🔔 风险提醒 <i>2</i></button><button class="text-btn" data-page="settings">⚙ 设置与授权</button></div>
     </aside>
@@ -35,6 +54,6 @@
       <button class="primary-btn notice-enter" id="noticeEnter">进入演示</button>
     </div>
   </div>
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
