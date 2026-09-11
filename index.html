@@ -18,8 +18,23 @@
     </aside>
     <main class="main"><header class="topbar"><button class="mobile-menu" id="menuBtn">☰</button><div id="crumb">今日概览</div><div class="top-actions"><span class="date">2026年9月 · 新学期开始</span><button class="help-btn" onclick="showToast('需要帮助？试试问问青财 AI')">?</button></div></header><div id="view"></div></main>
   </div>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
   <div class="toast" id="toast"></div>
   <div class="modal-backdrop" id="modal"></div>
+  <div class="notice-overlay" id="notice">
+    <div class="notice-card">
+      <div class="notice-brand"><span class="notice-mark">Q</span><span>青财智管<small>QINGCAI</small></span></div>
+      <h1>欢迎体验青财智管</h1>
+      <p class="notice-sub">青年人的智能财富成长助手 · 概念演示版</p>
+      <ul class="notice-points">
+        <li><span>🖥️</span><div><b>建议使用 PC 端访问</b><p>在桌面浏览器中可获得更佳的布局与交互体验</p></div></li>
+        <li><span>🧪</span><div><b>后端服务开发中</b><p>当前为纯前端概念演示，部分功能为本地模拟</p></div></li>
+        <li><span>🎭</span><div><b>数据均为虚构</b><p>页面中的用户、金额与图表均为演示数据</p></div></li>
+        <li><span>📌</span><div><b>仅供展示</b><p>不构成任何投资建议或收益承诺</p></div></li>
+      </ul>
+      <button class="primary-btn notice-enter" id="noticeEnter">进入演示</button>
+    </div>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>

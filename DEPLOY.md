@@ -92,6 +92,58 @@ git push
 
 不需要本地构建，也不需要 `gh-pages` 分支。
 
+### 日常更新的完整命令
+
+```powershell
+cd "C:\Users\adminstration\Documents\ChatGPT\工行杯"
+
+git status                 # 先看改了哪些文件，确认没有多余文件被带上
+git add -A                 # 暂存全部改动
+git commit -m "本次改了什么"  # 提交说明写清楚，方便以后回溯
+git push                   # 推送，Pages 会自动重新部署
+```
+
+推送后约 1 分钟自动上线，到 https://github.com/Trickabe/qingcai/actions 可以看到进度。
+
+> **只提交单个文件**时，用 `git add index.html` 代替 `git add -A`。
+>
+> **提交后想改说明**：`git commit --amend -m "新的说明"`（仅限还没推送的提交）。
+>
+> `git push` 报 `no upstream branch` 时，用 `git push -u origin main` 补一次即可，之后就能直接 `git push`。
+
+### 推送前建议自查
+
+本项目是纯静态站点，**资源引用必须保持相对路径**。若把 `<link href="styles.css">` 改成
+`/styles.css`，本地打开正常，但线上位于 `/qingcai/` 子路径下会 404、页面掉样式。
+
+改动后可本地确认一次：
+
+```powershell
+Select-String -Path index.html -Pattern '(href|src)="/'
+```
+
+没有输出即表示全部是相对引用，可以放心推送。
+
+### 网络前提
+
+`git push` 需要代理处于 **TUN 模式**（或全局模式）。仅开「系统代理」开关不够，
+因为 git 不读取 Windows 系统代理设置，会走直连并卡满 21 秒后报
+`Failed to connect to github.com port 443`。
+
+临时救急（不走 TUN，直接让 git 用代理）：
+
+```powershell
+git -c http.proxy=http://127.0.0.1:10794 push
+```
+
+注意：**不要**在 TUN 模式下同时配置 git 的 `http.proxy`，两者叠加会形成回环、
+报 `Recv failure: Connection was reset`。二选一即可：
+
+```powershell
+git config --unset http.proxy      # 用 TUN 时，清掉 git 代理配置
+git config --unset https.proxy
+```
+
 ---
 
 ## 五、本地预览
