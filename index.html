@@ -35,9 +35,10 @@
       <nav id="nav" aria-label="主导航"></nav>
       <div class="sidebar-bottom"><button class="outline-btn" id="notificationBtn">🔔 风险提醒 <i>2</i></button><button class="text-btn" data-page="settings">⚙ 设置与授权</button></div>
     </aside>
-    <main class="main"><header class="topbar"><button class="mobile-menu" id="menuBtn">☰</button><div id="crumb">今日概览</div><div class="top-actions"><span class="date">2026年9月 · 新学期开始</span><button class="help-btn" onclick="showToast('需要帮助？试试问问青财 AI')">?</button></div></header><div id="view"></div></main>
+    <main class="main"><header class="topbar"><button class="mobile-menu" id="menuBtn" aria-label="打开导航菜单"><span class="mm-icon">☰</span><span class="mm-text">菜单</span></button><div id="crumb">今日概览</div><div class="top-actions"><span class="date">2026年9月 · 新学期开始</span><button class="help-btn" onclick="showToast('需要帮助？试试问问青财 AI')">?</button></div></header><div id="view"></div></main>
   </div>
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <button class="nav-hint" id="navHint" onclick="setSidebar(true)">📚 8 个功能模块 · 点这里切换</button>
   <div class="toast" id="toast"></div>
   <div class="modal-backdrop" id="modal"></div>
   <div class="notice-overlay" id="notice">
