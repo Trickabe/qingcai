@@ -36,3 +36,24 @@
 .ai-banner p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
 .ai-chat-full{height:calc(100vh - 330px);min-height:480px;max-height:820px}
 @media(max-width:600px){.ai-banner{align-items:flex-start}.ai-chat-full{height:calc(100vh - 290px);min-height:420px}}
+/* ===== AI 聊天：输入框随文字自适应高度 ===== */
+.chat-input{align-items:flex-end}
+.chat-input textarea{flex:1;border:1px solid var(--line);border-radius:9px;padding:11px;outline:0;resize:none;font-family:inherit;font-size:14px;line-height:1.5;color:var(--ink);background:#fff;max-height:140px;overflow-y:auto;transition:border-color .2s}
+.chat-input textarea:focus{border-color:var(--teal)}
+.chat .messages{min-height:0}
+/* ===== AI 聊天：移动端更高对话区 ===== */
+@media(max-width:600px){
+  .ai-page{display:flex;flex-direction:column;min-height:calc(100vh - 92px);min-height:calc(100dvh - 92px)}
+  .ai-page .ai-chat-full{flex:1 1 auto;height:auto;min-height:460px;max-height:none}
+  .ai-page .page-heading{margin-bottom:12px}
+  .ai-page .page-heading h1{font-size:20px;margin-bottom:4px}
+  .ai-page .page-heading p{display:none}
+  .ai-page .ai-banner{padding:12px 14px;margin-bottom:10px}
+  .ai-page .ai-banner-icon{width:36px;height:36px;min-width:36px;font-size:18px}
+  .ai-page .ai-banner b{font-size:13px}
+  .ai-page .ai-banner p{font-size:11px;margin-top:2px}
+  .ai-page .section-title{margin-bottom:10px}
+  .chat-input{padding-top:10px}
+  .chat-input textarea{padding:9px;font-size:13px;max-height:110px}
+  .preset-row{padding:8px 0 2px}
+}
