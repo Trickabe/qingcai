@@ -56,4 +56,11 @@
   .chat-input{padding-top:10px}
   .chat-input textarea{padding:9px;font-size:13px;max-height:110px}
   .preset-row{padding:8px 0 2px}
+  .ai-page .page-heading{display:none}
+  .ai-page .ai-chat-full{flex:1 1 auto;height:auto;min-height:380px;max-height:none;padding:12px 12px 10px}
+  .ai-page .section-title{margin-bottom:8px}
+  .ai-page .disclaimer{margin-top:10px}
+  .preset-row{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .preset-row .preset-chip{flex:0 0 auto}
+  .chat-input textarea{max-height:96px}
 }
